@@ -38,8 +38,8 @@ const Deck = () => {
 
   return <Flex flexDir="column" p="4" alignItems="center">
     <HStack spacing={4} mb="60px">
-      {words.map((text) => (
-        <Word text={text} key={text} onDrag={onDragListener} onDragEnd={onDragEndListener} colorScheme="pink" />
+      {words.map((text, i) => (
+        <Word text={text} key={text} onDrag={onDragListener} onDragEnd={onDragEndListener} colorScheme="pink" delay={0.5 + i * 0.03} />
       ))}
     </HStack>
 
@@ -56,7 +56,7 @@ const Deck = () => {
 
     <HStack spacing={4} mt="60px">
       {solution.current.split(' ').map((text) => (
-        addedWords.includes(text) ? <Word text={text} key={text} onDrag={onDragListener} onDragEnd={onDragEndListener} colorScheme="teal" /> : null
+        addedWords.includes(text) ? <Word text={text} key={text} onDrag={onDragListener} onDragEnd={onDragEndListener} colorScheme="teal" delay={0} size="lg" /> : null
       ))}
     </HStack>
   </Flex>
